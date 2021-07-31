@@ -55,7 +55,7 @@ function isBenfordAnomaly(dataSet) {
                 ? 1
                 : 0;
     });
-    if (freqChart.slice(0, 5).reduce(function (a, c) { return a + c.digit; }, 0) > 16) {
+    if (freqChart.some(function (f, i) { return f.digit !== i + 1; })) {
         result.isAnomaly = true;
     }
     var _loop_2 = function (i) {

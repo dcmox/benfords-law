@@ -63,7 +63,7 @@ export function isBenfordAnomaly(dataSet: number[]): IBenfordResult {
 			: 0
 	})
 
-	if (freqChart.slice(0, 5).reduce((a, c) => a + c.digit, 0) > 16) {
+	if (freqChart.some((f, i) => f.digit !== i + 1)) {
 		result.isAnomaly = true
 	}
 	for (let i = 1; i < 10; i++) {
